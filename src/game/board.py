@@ -1,33 +1,29 @@
 import pygame
 from constants import *
 
-def grid(window, size, rows):
+def grid(window, SIZE, ROWS):
     #start grid
     #distance between rows
-    distanceBtwRows = size // rows
+    distanceBtwRows = SIZE // ROWS
     x = 0
     y = 0
-    for l in range(rows):
+    for l in range(ROWS):
         # increase x and y by distance
         x += distanceBtwRows
         y += distanceBtwRows
         #draw grid
-        pygame.draw.line(window, (BLACK), (x, 0), (x, size))
+        pygame.draw.line(window, (BLACK), (x, 0), (x, SIZE))
 
-        pygame.draw.line(window, (BLACK), (0, y), (size, y))
+        pygame.draw.line(window, (BLACK), (0, y), (SIZE, y))
 
 def redraw(window):
-    global size, rows
     window.fill((BG_COLOR))
-    grid(window, size, rows)
+    grid(window, SIZE, ROWS)
     #update display
     pygame.display.update()
 
 def main():
-    global size, rows
-    size = SIZE
-    rows = ROWS
-    window = pygame.display.set_mode((size, size))
+    window = pygame.display.set_mode((SIZE, SIZE))
 
     play = True
 
