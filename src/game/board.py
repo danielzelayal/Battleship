@@ -18,7 +18,7 @@ def grid(window, size, rows):
 
 def redraw(window):
     global size, rows
-    window.fill((WHITE))
+    window.fill((BG_COLOR))
     grid(window, size, rows)
     #update display
     pygame.display.update()
