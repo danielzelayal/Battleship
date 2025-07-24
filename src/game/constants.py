@@ -1,10 +1,9 @@
-SIZE = 600
-ROWS = 20
-
 WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 600
 GRID_SIZE = 10
 
-WHITE = (255, 255, 255)
-LINE_COLOR = (0, 0, 0)
-BG_COLOR = (173, 216, 230) #light blue
+CELL_SIZE = 40  # Each square is 40x40 pixels
+BOARD_PADDING = 50  # Space from the window border
+
+LINE_COLOR = (0, 0, 0)  # Black lines
+BG_COLOR = (173, 216, 230)  # Light blue

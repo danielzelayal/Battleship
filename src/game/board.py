@@ -1,46 +1,24 @@
 import pygame
-from constants import *
+from .constants import *
 
-#class Board
+class Board:
+    def __init__(self, surface, origin_x, origin_y):
+        self.surface = surface
+        self.origin_x = origin_x
+        self.origin_y = origin_y
 
-def grid(window, SIZE, ROWS):
-    #start grid
-    #distance between rows or size of our cubes
-    distanceBtwRows = SIZE // ROWS
-    x = 0
-    y = 0
-    for l in range(ROWS):
-        # increase x and y by distance
-        x += distanceBtwRows
-        y += distanceBtwRows
-        #draw grid
-        #line takes two 4 arguments
-        #1 and 2, 1 where we will draw (on window) and 2 which color
-        #3 - where we will draw again but in what place, on x and 0 by y
-        #4 - size of our line, from x until size of our window
-        pygame.draw.line(window, (BLACK), (x, 0), (x, SIZE))
-        #4 - size of our line, from size of our window until y
-        pygame.draw.line(window, (BLACK), (0, y), (SIZE, y))
-
-def redraw(window):
-    #fill window with color
-    window.fill((BG_COLOR))
-    grid(window, SIZE, ROWS)
-    #update display
-    pygame.display.update()
-
-def main():
-    window = pygame.display.set_mode((SIZE, SIZE))
-    pygame.display.set_caption("AI Battleship")
-
-    play = True
-
-    #main loop
-    while play:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                exit()
-
-        #redraw function
-        redraw(window)
-main()
+    def draw_grid(self):
+        for row in range(GRID_SIZE + 1):
+            pygame.draw.line(
+                self.surface,
+                LINE_COLOR,
+                (self.origin_x, self.origin_y + row * CELL_SIZE),
+                (self.origin_x + GRID_SIZE * CELL_SIZE, self.origin_y + row * CELL_SIZE)
+            )
+        for col in range(GRID_SIZE + 1):
+            pygame.draw.line(
+                self.surface,
+                LINE_COLOR,
+                (self.origin_x + col * CELL_SIZE, self.origin_y),
+                (self.origin_x + col * CELL_SIZE, self.origin_y + GRID_SIZE * CELL_SIZE)
+            )
