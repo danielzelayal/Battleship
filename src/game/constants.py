@@ -7,3 +7,4 @@ BOARD_PADDING = 50  # Space from the window border
 
 LINE_COLOR = (0, 0, 0)  # Black lines
 BG_COLOR = (173, 216, 230)  # Light blue
+GREEN = (0, 255, 0) # Green

@@ -18,6 +18,11 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
+            elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                board.handle_click(event.pos)
+
+        screen.fill(BG_COLOR)
+        board.draw_grid()
         pygame.display.flip()
         clock.tick(60)  # 60 FPS
 
